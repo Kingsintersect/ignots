@@ -1,0 +1,142 @@
+// write the use case title
+UseCase:- Provide VTU user with AIRTIM SUBSCRIPTIONS from WALLET account
+
+//
+SCOPE:-  VTU SOFTWARE APPLICATION
+
+//This is user goal or sub functions
+LEVEL:-  User Goal
+
+//The main participants in our system
+PRIMARY ACTOR:- VTU CUSTOMER
+
+=======STAKE HOLDERS & INTERESTS=====
+//These are all the actors involved in our system /or All the people who can use our system
+1.VTU CUSTOMER
+    a. Access to all the funds in their WALLET account
+
+    b. Fund WALLET
+
+    c. check their balance while making sure their money is safe
+
+    d. Recieve a notification
+
+2. VTU
+    a. Provide SUBSCRIPTIONS available to customers
+
+    b. Automatically update fund changes immediately
+
+    c. Protect the VTU and the customers from false Credentialss or PINs
+
+3. BANK HOME OFFICE COMPUTER
+    a. Provide accurate account fund information
+
+    b. update immediately when a transaction occures system wide
+
+4. FRAUD DEPARTMENT
+    a. If sent Credentials information they will verify if a Credentials is stolen
+
+=======PRECONDITIONS=======
+// this is everything that must accour to prepare our system ready for execution
+    a. customer must be logged in
+    b. A valid PIN enterd that matche with the WALLET
+
+=====POSTCONDITIONS======
+// This is everything that must occur after a successfull transaction is executed
+    a. Wallet balance is updated imediately
+    b. Airtime is creadited to the customers number
+    c. notification is sent
+
+=======MAIN SUCCESS SCENARIO======
+// this is a step by step list of interactions that would occur  during the most common successfull scenario 
+
+1. THE VTU displays all SUBSCRIPTIONS options available
+2. customer choses his subscription option
+3. customer selects his prefered NETWORK
+4. fills in the Credentials
+5. proceeds with the transaction
+6. vtu checkes if the customer have enogh fund to carry out the transaction
+6. the VTU makes the purchase of the subscription
+7. vtu deducts the money from the customers wallet or from their bank account or their bitcoin account
+8. vtu tops up their airtime to their number
+9.sends a success notification to the customer
+10. maybe takes the customer back to home page 
+
+==========MAIN FAILURE SCENARIO======
+1. insuficient fund
+    a. send the customer failure message
+    b. reload the current page with a large option button to redirect the customer to the fund Wallet
+2. Transaction failed
+    a. return to the fill credentials page
+    b. send failure notification to the cusstomer
+
+=========NOUNS=============
+//NEXT we need to define our nouns in the above step by step process
+1.VTU
+2.CUSTOMER
+3.WALLET
+4.BANK COMPUTER
+5.BANK NETWORK
+6.CREDENTIALS
+7.TRANSACTION
+8.OTHER SOURCE
+9.OTHER SOURCE NETWORK
+10.SUBSCRIPTIONS
+
+
+
+
+=====EXTENSIONS=====
+// this is also a step by step list of interactions for other alternative scenario outside of the norm
+
+*a. At any time if the WALLET runs out of funds
+    1. Display an insufficient fund message
+
+3a. The Credentials is from anothe source like (bitcoin, bank)
+    1. connect to the other source to verify funds
+        a. The other source isn't reachable
+            1. Inform the customer that a transaction can't be made
+            2. Provide the customer with their Credentials
+            3. End transaction
+            4. Provide the customer with a receipt
+        b. The other source is reacheable
+            1. if the customer must pay a fee inform them of that
+                i. Recieve verification that the customer understands any fees
+                    1. Add the fee as part of the transaction if the customer allows
+                    2. If the customer declines record that and provide the customer with their Credentials and receipt
+
+
+========SPECIAL REQUIRMENTS=========
+1. The text must be readable by color blinded people
+2. The text mut be readable by people who speake ote languages
+
+========DATA VARIATIONS LIST=========
+1. All data uses 256 bit AES encryption
+
+
+===========FREQUENCY OCCURRENCE===========
+// list of how often a system could enter a new scenario
+1. if they cancel a transaction the revert the whole operation
+
+===========MISCELLANEOUS=================
+1. Is their anything we can dot o improve user experience for the blind
+2. can polarized screens help improve security
+
+
+
+
+
+
+ 
+
+
+-------------RELATIVE KEYWORDS---------------
+"Is a" ---- inheritance: Implements or extends 
+
+"Uses a" ----  Dependence: Class depends on something but it isn't a member of the class
+
+"Has a" ---- Association: Class contains a reference to anotheer class
+ 
+Aggregation: Class is a container for other classes, but if the container is destroyed the contained
+
+"Part of" ---- Composition: Class is a container for other classes and if the container is destroyed the container is also "Part of"

@@ -1,0 +1,152 @@
+// write the use case title
+UseCase:- Provide ATM user with money from checking account
+
+//
+SCOPE:-  ATM SOFTWARE APPLICATION
+
+//This is user goal or sub functions
+LEVEL:-  User Goal
+
+//The main participants in our system
+PRIMARY ACTOR:- Bank Customer
+
+=======STAKE HOLDERS & INTERESTS=====
+//These are all the actors involved in our system /or All the people who can use our system
+1.BANK CUSTOMER
+    a. Access to all the funds in both their savings and checking account
+
+    b. Deposite checkes
+
+    c. check their balance while making sure their money is safe
+
+    d. Recieve a receipt
+
+2. ATM
+    a. Provide funds available to customers
+
+    b. Automatically update fund changes immediately
+
+    c. Protect the bank and the customers from false cards or PINs
+
+3. BANK HOME OFFICE COMPUTER
+    a. Provide accurate account fund information
+
+    b. update immediately when a transaction occures system wide
+
+4. FRAUD DEPARTMENT
+    a. If sent card information they will verify if a card is stolen
+
+=======PRECONDITIONS=======
+// this is everything that must accour to prepare our system ready for execution
+    a. A valid card is enterd
+    b. A valid PIN enterd that matche with the card
+
+=====POSTCONDITIONS======
+// This is everything that must occur after a successfull transaction is executed
+    a. Customer is happy with the transactionb. The transaction is disseminated to all bank systems
+    c. A photo of the customer is taken
+    d. Receipt is generated
+    e. Card is provided back to the Customer
+
+=======MAIN SUCCESS SCENARIO======
+// this is a step by step list of interactions that would occur  during the most common successfull scenario 
+
+1. THE ATM displays a message on screen identifying itself to customers
+2. The customers inserts their card
+3.The ATM verifies the legitimacy of the card
+4. The Home Banking Office Verifies the legitimacy of a Card
+5. The AATM takes photo of the cusstomer
+6. The ATM requests that the customer enters their PIN
+7. The ATM verifies the legitimacy of th e PIN
+8. The ATM asks the customer whether they want to remove funds or make a Deposite
+9. If the customer requests to remove funds the ATM asks if the funds should be removed from the checking or savings
+10. Customer decieds which account to remove funds from
+11.The customer enters the amount to remove
+12. The ATM contacts the home office to verify if the funds are available
+13. The home office locks down the account from other transaactions
+14. The ATM  informs the customer that a transaction is being processed
+15. The ATM provides the specified funds to the customer
+16. The ATM asks the customer if they would like another transaction
+17. The ATM repeats step 8 thru 17 untile the customer is finished
+18. The home office is informed of the transaction
+19. The customer recieves s receipt
+20. The customer recieves their card
+21. The ATM displays its welcome message for the next customer
+
+
+
+=========NOUNS=============
+//NEXT we need to define our nouns in the above step by step process
+1.ATM
+2.CUSTOMER
+3.ACCOUNT
+4.BANK COMPUTER
+5.BANK NETWORK
+6.Card
+7.TRANSACTION
+
+
+
+
+
+=====EXTENSIONS=====
+// this is also a step by step list of interactions for other alternative scenario outside of the norm
+
+*a. At any time if the ATM runs out of funds
+    1. Display a closed message
+    2. Shutdown the machine
+    3. Send a message that a technician needs to fill the ATM with funds
+
+*b. At any time if the ATM runs out of reciept paper
+    1. Display a closed message
+    2. Shutdown the machine
+    3. Send a message that a technician needs to fill the ATM with paper
+
+3a. The card is from anothe bank
+    1. connect to the other bank to verify funds
+        a. The other bank isn't reachable
+            1. Inform the customer that a transaction can't be made
+            2. Provide the customer with their card
+            3. End transaction
+            4. Provide the customer with a receipt
+        b. The other bank is reacheable
+            1. if the customer must pay a fee inform them of that
+                i. Recieve verification that the customer understands any fees
+                    1. Add the fee as part of the transaction if the customer allows
+                    2. If the customer declines record that and provide the customer with their card and receipt
+
+
+========SPECIAL REQUIRMENTS=========
+1. The text must be readable by color blinded people
+2. The text mut be readable by people who speake ote languages
+
+========DATA VARIATIONS LIST=========
+1. All data uses 256 bit AES encryption
+
+
+===========FREQUENCY OCCURRENCE===========
+// list of how often a system could enter a new scenario
+1. could be constantly ---- if they cancel one transaction the move on to the next one
+
+===========MISCELLANEOUS=================
+1. Is their anything we can dot o improve user experience for the blind
+2. can polarized screens help improve security
+
+
+
+
+
+
+ 
+
+
+-------------RELATIVE KEYWORDS---------------
+"Is a" ---- inheritance: Implements or extends 
+
+"Uses a" ----  Dependence: Class depends on something but it isn't a member of the class
+
+"Has a" ---- Association: Class contains a reference to anotheer class
+ 
+Aggregation: Class is a container for other classes, but if the container is destroyed the contained
+
+"Part of" ---- Composition: Class is a container for other classes and if the container is destroyed the container is also "Part of"

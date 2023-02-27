@@ -1,0 +1,152 @@
+// write the use case title
+UseCase:- Register and Log in customers in to the VTU portal
+
+//
+SCOPE:-  VTU SOFTWARE APPLICATION
+
+//This is user goal or sub functions
+LEVEL:-  User Registration and Login
+
+//The main participants in our system
+PRIMARY ACTOR:- VTU CUSTOMER
+
+=======STAKE HOLDERS & INTERESTS=====
+//These are all the actors involved in our system /or All the people who can use our system
+1.VTU CUSTOMER
+    a. Ability to register and log into the portal
+    b. ability  to logout of the portal
+    c. ability to close account with the VTU
+
+2. VTU
+    2a. REGISTER/ SIGNUP
+        a. checkes if the new customers USERNAME credential collide with an already existing customer
+
+        b. Enter the new customer credentials into the database
+
+        c. Encrypt sencitive information
+
+        d.redirect the customer to Login
+
+    2b. LOGIN/SIGNIN
+        a. check if the customers credentials match with any existing customer in the database
+        b. open a session & grant certain permissions
+        c. redirect the customer to the VTU portal
+
+    2c. LOGOUT/SIGNOUT
+        a. kill all session and remove certain permissions
+        
+
+
+=======PRECONDITIONS=======
+// this is everything that must accour to prepare our system ready for execution
+    
+
+=====POSTCONDITIONS======
+// This is everything that must occur after a successfull transaction is executed
+    
+
+=======MAIN SUCCESS SCENARIO======
+// this is a step by step list of interactions that would occur  during the most common successfull scenario 
+
+1. VTU displays the register form with an option to login instead
+2. validate the customers credentials with the data in the data base 
+3. redirect the customer to login
+4. succesfully logs the customer into the portal and grant the customer certail Access
+
+==========MAIN FAILURE SCENARIO======
+1. INCORRECT / INVALID DATA TYPE
+    a. validate each data on form field blur and show a red border to indicate invalid field
+    b. pop up a message to the customer telling him what type of data is required
+    c. remove this massege and red border on correct data type
+    d. retain the customers information on the form field
+
+2. CREDENTAILS ALREADY EXIST
+    a. Reload the register page and send a notification of the situation to the customer
+
+
+
+=========NOUNS=============
+//NEXT we need to define our nouns in the above step by step process
+1.VTU
+2.CUSTOMER
+
+
+
+
+
+=====EXTENSIONS=====
+// this is also a step by step list of interactions for other alternative scenario outside of the norm
+
+NO EXTENSIONS
+
+
+========SPECIAL REQUIRMENTS=========
+1. The text must be readable by color blinded people
+2. The text mut be readable by people who speake ote languages
+
+========DATA VARIATIONS LIST=========
+1. All data uses 256 bit AES encryption
+
+
+===========FREQUENCY OCCURRENCE===========
+// list of how often a system could enter a new scenario
+
+===========MISCELLANEOUS=================
+1. Is their anything we can dot o improve user experience for the blind
+2. can polarized screens help improve security
+
+
+
+
+
+
+ 
+
+
+-------------RELATIVE KEYWORDS---------------
+"Is a" ---- inheritance: Implements or extends 
+
+"Uses a" ----  Dependence: Class depends on something but it isn't a member of the class
+
+"Has a" ---- Association: Class contains a reference to anotheer class
+ 
+Aggregation: Class is a container for other classes, but if the container is destroyed the contained
+
+"Part of" ---- Composition: Class is a container for other classes and if the container is destroyed the container is also "Part of"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBqIg7FgEmlwUaLNOGxAwIYLaezYPIs0hI",
+  authDomain: "ignots-18cbc.firebaseapp.com",
+  projectId: "ignots-18cbc",
+  storageBucket: "ignots-18cbc.appspot.com",
+  messagingSenderId: "675911722327",
+  appId: "1:675911722327:web:fa22dec41f78e4a5ebca12",
+  measurementId: "G-6WN4DQ4C0J"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
