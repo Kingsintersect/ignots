@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/compat/auth";
 import { GoogleAuthProvider, GithubAuthProvider } from "@angular/fire/auth";
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -80,5 +80,20 @@ export class AuthService {
     }, (err: any) => {
       alert("Something Went Wrong! Not Able To End Mail To Your Registerd Email")
     });
+  }
+
+  // check if theirs a logged in user and redirect to the dashboard , if not redirect t the login page
+  isLoggedIn(user_token: string | null, url: string) {
+    let url_path: boolean = (url == "/login" || url == "/register" || url == "/forgot-password" ) ? true: false;
+    
+    if (user_token !== "true") {    
+      if (!url_path) {
+        this.router.navigate(["/login"])
+      }
+    }else {    
+      if (url_path) {
+        this.router.navigate(["/dashboard"])
+      }
+    }
   }
 }
